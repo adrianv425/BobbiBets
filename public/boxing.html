@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">
+<meta name="description" content="">
+<meta name="author" content="">
+
+<title>BobbiBets</title>
+<script src='index.js'></script>
+<!-- Bootstrap core CSS -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+<script src="https://cdn.firebase.com/libs/firebaseui/2.5.1/firebaseui.js"></script>
+<link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/2.5.1/firebaseui.css" />
+<script>
+
+  function now(){
+  }
+</script>
+<style>
+  tab1 { padding-left: 1em; 
+          padding-right:1em;}
+  tab2 {padding-top: 1em;}
+  /* Place the navbar at the bottom of the page, and make it stick */
+.bnavbar {
+    background-color: #006e0b;
+    overflow: hidden;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Style the links inside the navigation bar */
+.bnavbar a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+/* Change the color of links on hover */
+.bnavbar a:hover {
+    background-color: #006e0b;
+    color: #dd2228;
+}
+
+/* Add a color to the active/current link */
+.bnavbar a.active {
+    background-color: #dd2228;
+    color: white;
+}
+    div.scrollmenu {
+        background-color: #333;
+        overflow: auto;
+        white-space: nowrap;
+    }
+    
+    div.scrollmenu a {
+        display: inline-block;
+        color: white;
+        text-align: center;
+        padding: 0px;
+        text-decoration: none;
+    }
+    
+    div.scrollmenu a:hover {
+        background-color: #777;
+    }
+    </style>
+</head>
+<body onload="loginButton();">
+  <nav class="navbar sticky-top navbar-dark" style="background-color: #006e0b">
+    <div class = "container">
+    <a class="navbar-brand" href="index.html"><img src="Pics/bobHead.png" width="40" height="40" alt=""><img src="Pics/mainlogo.png" width="220" height="40"alt=""></a>
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModal" id = "loginButton" onclick = "">
+    Login
+  </button>
+
+  
+  </div><div class="container">
+  <strong><p id="balance" style = "color: #dd2228"></p></strong>
+</div></nav>
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Sign In</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <div class="input-group input-group-sm mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">UserName</span>
+                </div>
+                <input type="text" class="form-control" id="userName" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+  </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" data-dismiss="modal" onclick = "login();">Login!</button>
+        </div>
+      </div>
+    </div>
+  </div>
+<header class="masthead"style="background-color: #006e0b">
+<div class="container h-100">
+
+  <div class="scrollmenu"style="background-color: #006e0b">
+    <a href="basketball.html"><button class="btn btn-outline-success" type="button"><img src="Pics/basketball.png" width="40" height="40" class="d-inline-block align-top" alt=""></button></a>
+    <a href="soccer.html"><button class="btn btn-outline-success" type="button"><img src="Pics/soccer.png" width="40" height="40" class="d-inline-block align-top" alt=""></button></a>
+    <a href="football.html"><button class="btn btn-outline-success" type="button"><img src="Pics/football.png" width="40" height="40" class="d-inline-block align-top" alt=""></button></a>
+    <a href="hockey.html"><button class="btn btn-outline-success" type="button"><img src="Pics/hockey.png" width="40" height="40" class="d-inline-block align-top" alt=""></button></a>
+    <a href="boxing.html"><button class="btn btn-outline-success active" type="button"><img src="Pics/boxing.png" width="40" height="40" class="d-inline-block align-top" alt=""></button></a>
+    <a href="nascar.html"><button class="btn btn-outline-success" type="button"><img src="Pics/nascar.png" width="40" height="40" class="d-inline-block align-top" alt=""></button></a>
+    <a href="horses.html"><button class="btn btn-outline-success" type="button"><img src="Pics/horse.png" width="40" height="40" class="d-inline-block align-top" alt=""></button></a>
+    <a href="mma.html"><button class="btn btn-outline-success" type="button"><img src="Pics/MMA.png" width="40" height="40" class="d-inline-block align-top" alt=""></button></a>
+    <a href="golf.html"><button class="btn btn-outline-success" type="button"><img src="Pics/golf.svg" width="40" height="40" class="d-inline-block align-top" alt=""></button></a>
+      
+</div>
+
+</div>
+</header>
+
+  
+
+<div class="container">
+    <h4 style = "color:#dd2228">Boxing</h4>
+    <div class="jumbotron"style="background-color: #DDDfA2">
+        
+        <div class="container">
+            <h5>No Upcoming Matches</h5>
+          
+      </div>
+      </div>
+
+</div>
+
+
+</body>
+<footer>
+    
+    <div class="bnavbar">
+        <div class="container">
+        <a href="index.html" class="active"><tab1>Bet</tab1></a>
+      <a href="myBets.html"><tab1>My Bets</tab1></a>
+      <a href="myAccount.html"><tab1>Account</tab1></a>
+    </div></div></footer>
+<script src="https://www.gstatic.com/firebasejs/5.0.4/firebase.js"></script>
+<script>
+  
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyDXe32BuZMREuwUzL3BtdEEaGL4nke_F5o",
+    authDomain: "betbobbi.firebaseapp.com",
+    databaseURL: "https://betbobbi.firebaseio.com",
+    projectId: "betbobbi",
+    storageBucket: "",
+    messagingSenderId: "835300689356"
+  };
+  firebase.initializeApp(config);
+</script>
+</html>

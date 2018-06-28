@@ -1,0 +1,37 @@
+[debug] [2018-06-28T01:16:28.808Z] ----------------------------------------------------------------------
+[debug] [2018-06-28T01:16:28.813Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\adria\AppData\Roaming\npm\node_modules\firebase-tools\bin\firebase deploy
+[debug] [2018-06-28T01:16:28.814Z] CLI Version:   3.19.1
+[debug] [2018-06-28T01:16:28.814Z] Platform:      win32
+[debug] [2018-06-28T01:16:28.814Z] Node Version:  v10.5.0
+[debug] [2018-06-28T01:16:28.816Z] Time:          Wed Jun 27 2018 18:16:28 GMT-0700 (Pacific Daylight Time)
+[debug] [2018-06-28T01:16:28.816Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-06-28T01:16:28.837Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-06-28T01:16:28.839Z] > authorizing via signed-in user
+[debug] [2018-06-28T01:16:28.843Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2018-06-28T01:16:28.843Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ { refresh_token: '1/eK0tvv85_B_d81Z45xKJB_SCQDtVS7X_KRnFxHpfxeM',
+  client_id:
+   '563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com',
+  client_secret: 'j9iVZfS8kkCEFUPaAeJV0sAi',
+  grant_type: 'refresh_token',
+  scope:
+   'email https://www.googleapis.com/auth/cloud-platform https://www.googleapis.com/auth/cloudplatformprojects.readonly https://www.googleapis.com/auth/firebase openid' } 
+ Wed Jun 27 2018 18:16:28 GMT-0700 (Pacific Daylight Time)
+[debug] [2018-06-28T01:16:29.289Z] <<< HTTP RESPONSE 200
+[debug] [2018-06-28T01:16:29.303Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/betbobbi  
+  
+ Wed Jun 27 2018 18:16:29 GMT-0700 (Pacific Daylight Time)
+[debug] [2018-06-28T01:16:30.744Z] <<< HTTP RESPONSE 200
+[debug] [2018-06-28T01:16:30.747Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/betbobbi/tokens  
+  
+ Wed Jun 27 2018 18:16:30 GMT-0700 (Pacific Daylight Time)
+[debug] [2018-06-28T01:16:31.745Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Deploying to 'betbobbi'...
+[info] 
+[info] i  deploying hosting
+[info] i  hosting: preparing public directory for upload...
+[debug] [2018-06-28T01:16:32.768Z] >>> HTTP REQUEST PUT https://deploy.firebase.com/v1/hosting/betbobbi/uploads/-LG2xdKIVfBFlzJG7dSi?fileCount=39&message=  
+  
+ Wed Jun 27 2018 18:16:32 GMT-0700 (Pacific Daylight Time)

@@ -16,6 +16,7 @@
     <script>
 
         function now(){
+
         }
       </script>
       <style>
@@ -115,18 +116,18 @@
     <header class="masthead"style="background-color: #006e0b">
     <div class="container h-100">
     
-            <div class="scrollmenu"style="background-color: #006e0b">
-                <button class="btn btn-outline-success" type="button"><img src="Pics/basketball.png" width="40" height="40" class="d-inline-block align-top" alt=""></button>
-                <button class="btn btn-outline-success" type="button"><img src="Pics/soccer.png" width="40" height="40" class="d-inline-block align-top" alt=""></button>
-                  <button class="btn btn-outline-success" type="button"><img src="Pics/football.png" width="40" height="40" class="d-inline-block align-top" alt=""></button>
-                  <button class="btn btn-outline-success" type="button"><img src="Pics/hockey.png" width="40" height="40" class="d-inline-block align-top" alt=""></button>
-                  <button class="btn btn-outline-success" type="button"><img src="Pics/boxing.png" width="40" height="40" class="d-inline-block align-top" alt=""></button>
-                  <button class="btn btn-outline-success" type="button"><img src="Pics/nascar.png" width="40" height="40" class="d-inline-block align-top" alt=""></button>
-                  <button class="btn btn-outline-success" type="button"><img src="Pics/horse.png" width="40" height="40" class="d-inline-block align-top" alt=""></button>
-                  <button class="btn btn-outline-success" type="button"><img src="Pics/MMA.png" width="40" height="40" class="d-inline-block align-top" alt=""></button>
-                  <button class="btn btn-outline-success" type="button"><img src="Pics/golf.svg" width="40" height="40" class="d-inline-block align-top" alt=""></button>
-                  
-            </div>
+        <div class="scrollmenu"style="background-color: #006e0b">
+            <a href="basketball.html"><button class="btn btn-outline-success" type="button"><img src="Pics/basketball.png" width="40" height="40" class="d-inline-block align-top" alt=""></button></a>
+            <a href="soccer.html"><button class="btn btn-outline-success" type="button"><img src="Pics/soccer.png" width="40" height="40" class="d-inline-block align-top" alt=""></button></a>
+            <a href="football.html"><button class="btn btn-outline-success" type="button"><img src="Pics/football.png" width="40" height="40" class="d-inline-block align-top" alt=""></button></a>
+            <a href="hockey.html"><button class="btn btn-outline-success" type="button"><img src="Pics/hockey.png" width="40" height="40" class="d-inline-block align-top" alt=""></button></a>
+            <a href="boxing.html"><button class="btn btn-outline-success" type="button"><img src="Pics/boxing.png" width="40" height="40" class="d-inline-block align-top" alt=""></button></a>
+            <a href="nascar.html"><button class="btn btn-outline-success" type="button"><img src="Pics/nascar.png" width="40" height="40" class="d-inline-block align-top" alt=""></button></a>
+            <a href="horses.html"><button class="btn btn-outline-success" type="button"><img src="Pics/horse.png" width="40" height="40" class="d-inline-block align-top" alt=""></button></a>
+            <a href="mma.html"><button class="btn btn-outline-success" type="button"><img src="Pics/MMA.png" width="40" height="40" class="d-inline-block align-top" alt=""></button></a>
+            <a href="golf.html"><button class="btn btn-outline-success" type="button"><img src="Pics/golf.svg" width="40" height="40" class="d-inline-block align-top" alt=""></button></a>
+              
+        </div>
     
     
     </div>
@@ -139,17 +140,13 @@
             
             <div class="container">
                     <div class = "row">
-                            <div class = "col" id="myBetTeams">
+                            <div class = "col-8" id="myBetTeams">
                         <h5 class="display-10"><img src="Pics/cleveland.png" width="35" height="35" class="d-inline-block align-top" alt="">Cleveland Cavaliers<br><img src="Pics/warriors.png" width="35" height="35" class="d-inline-block align-top" alt="">Golden State Warriors</tab1></h5>
                         <p>June 9, 2018 at 6:00pm (PST) in Oakland, CA</p>
-                        <p >Game 4 of 7. Warriors lead series 3-0.</p>
-                        <hr class="my-4">
-                        <div class="media" id = "tranID" onload="">
-                            Transaction id = 
-                            
-                            </div>
-            </div><div class = "col" id = "betDisplay" onload = "displayBets();">
-                No Bets
+  
+            </div><div class = "col-4" id = "betDisplay" onload = "displayBets();">
+                No Bets<br><br>
+                Transaction ID = 
             </div>
           </div>
           </div>
@@ -163,7 +160,7 @@
         <div class="container">
             <a href="index.html"><tab1>Home</tab1></a>
       <a href="myBets.html" class = "active"><tab1>My Bets</tab1></a>
-      <a href="#contact"><tab1>Account</tab1></a>
+      <a href="myAccount.html"><tab1>Account</tab1></a>
     </div></div></footer>
 <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase.js"></script>
 <script>
