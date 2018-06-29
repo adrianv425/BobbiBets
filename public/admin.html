@@ -17,13 +17,20 @@
 <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/2.5.1/firebaseui.css" />
 </head>
 <body>
-    <div class = "container">
-    Cleveland Cavs
-        <input type="text" class="form-control" id="cavsScore" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
-    Golden State
-        <input type="text" class="form-control" id="warScore" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
-        <button class = "btn" onclick = "gameover('00001');">GameOver</button>
-        </div>
+    <div class="container">
+      Game
+      <input type="text" class="form-control" id="game" aria-label="Small" aria-describedby="inputGroup-sizing-sm"> MLT1 odds:
+      <input type="text" class="form-control" id="MLT1odds" aria-label="Small" aria-describedby="inputGroup-sizing-sm"> MLT2 odds:
+      <input type="text" class="form-control" id="MLT2odds" aria-label="Small" aria-describedby="inputGroup-sizing-sm"> SprT1 odds:
+      <input type="text" class="form-control" id="SprT1odds" aria-label="Small" aria-describedby="inputGroup-sizing-sm">SpreadT1:
+      <input type="text" class="form-control" id="spreadT1" aria-label="Small" aria-describedby="inputGroup-sizing-sm"> SprT2 odds:
+      <input type="text" class="form-control" id="SprT2odds" aria-label="Small" aria-describedby="inputGroup-sizing-sm">SpreadT2:
+      <input type="text" class="form-control" id="spreadT2" aria-label="Small" aria-describedby="inputGroup-sizing-sm">TOver odds:
+      <input type="text" class="form-control" id="TOverodds" aria-label="Small" aria-describedby="inputGroup-sizing-sm"> Total:
+      <input type="text" class="form-control" id="prediction" aria-label="Small" aria-describedby="inputGroup-sizing-sm">TUnder odds:
+      <input type="text" class="form-control" id="TUnderodds" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+      <button class="btn" onclick="updateOdds();">GameOver</button>
+    </div>
 
 </body><script src="https://www.gstatic.com/firebasejs/5.0.4/firebase.js"></script>
 <script>

@@ -44,7 +44,13 @@ function bet(type, game, elementID)
 
     userref.once('value').then(function(snapshot) {
         balance = parseInt(snapshot.val().total);
-        if(balance > amount){
+        if(amount < 0){
+            console.log("Negative input");
+            var alert = document.getElementById("modalFooter").innerHTML;
+            document.getElementById("modalFooter").innerHTML = "Please enter a positive input." + alert;
+            return 0;
+        }
+        else if(balance > amount){
             balance -= amount;
             userref.set({
                 total : balance
@@ -52,19 +58,24 @@ function bet(type, game, elementID)
         }
         else{
             console.log("Not enough funds!");
+            var alert = document.getElementById("modalFooter").innerHTML;
+            document.getElementById("modalFooter").innerHTML = "Not enough funds!" + alert;
+            return 0;
         }
-    }); 
+
 
     //Add points to pot of type
-    ref1 = firebase.database().ref("/Games/"+game+"/Pots/"+type+"/total");
+    ref1 = firebase.database().ref("/Games/"+game+"/Pots/"+type);
     ref1.once('value').then(function(snapshot) {
-        pot = snapshot.val().pot;
+        pot = snapshot.val().total;
         // ...;
         console.log(pot);
         total = pot + parseInt(document.getElementById(elementID).value);
-        ref1.set({
-            pot : total,
-        });
+        
+        var updates = {};
+        updates["/Games/"+game+"/Pots/"+type+"/total"] = total;
+      
+        firebase.database().ref().update(updates);
     });
     //add to running total on the pot
     ref2 = firebase.database().ref("/Games/"+game+"/Pots/"+type+"/bets").push();
@@ -78,13 +89,85 @@ function bet(type, game, elementID)
     var betRef = firebase.database().ref("/username/"+userID+"/bets/"+tranKey);
     betRef.set({
         amount : amount,
-        game : game
+        type : type,
+        game : game,
+        status : "pending result"
     });
     document.getElementById("balance").innerHTML = balance;
-
+}); 
 
 }
 
+function displayBets(){
+    var u;
+    var body = document.getElementById("betDisplay").innerHTML;
+
+    if((u = localStorage.getItem("userName"))!=null){
+        var ref = firebase.database().ref("/username/"+u+"/bets");
+        ref.once('value', function(snapshot) {
+            snapshot.forEach(function(childSnapshot) {
+                console.log("hi");
+                var amount = parseInt(childSnapshot.val().amount);
+                var type = parseInt(childSnapshot.val().type);
+                var game = childSnapshot.val().game;
+
+                console.log(game);
+
+                body = body + '<div class="container" id="bet0"><div class="row"><div class="col-8" id="myBetTeams"><h5 class="display-10">'+gamet1(game)+'<br>'+gamet2(game)+'</tab1></h5></div><div class="col-4">$'+amount+'<br>status: TBD...</div></div></div><br>';
+                 document.getElementById("betDisplay").innerHTML = body;
+            });
+        });
+    }
+    else{
+
+    }
+}
+
+function gamet1(t){
+    switch(t){
+        case 'r16BvJ':
+            return '<img src="Pics/belgiumFlag.png" width="35" height="35" class="d-inline-block align-top" alt="">Belgium';
+        case 'r16BvM':
+            return '<img src="Pics/brazilFlag.png" width="35" height="35" class="d-inline-block align-top" alt="">Brazil';
+        case 'r16CvD':
+            return '<img src="Pics/croatiaFlag.png" width="35" height="35" class="d-inline-block align-top" alt="">Croatia';
+        case 'r16CvE':
+            return '<img src="Pics/colombiaFlag.png" width="35" height="35" class="d-inline-block align-top" alt="">Colombia';
+        case 'r16FvA':
+            return '<img src="Pics/franceFlag.png" width="35" height="35" class="d-inline-block align-top" alt="">France';
+        case 'r16SvR':
+            return '<img src="Pics/spainFlag.png" width="35" height="35" class="d-inline-block align-top" alt="">Spain';
+        case 'r16SvS':
+            return '<img src="Pics/swedenFlag.svg" width="35" height="35" class="d-inline-block align-top" alt="">Sweden';
+        case 'r16UvP':
+            return '<img src="Pics/uruguayFlag.png" width="35" height="35" class="d-inline-block align-top" alt="">Uruguay';
+        default:
+            break;
+    }
+}
+
+function gamet2(t){
+    switch(t){
+        case 'r16BvJ':
+            return '<img src="Pics/japanFlag.png" width="35" height="35" class="d-inline-block align-top" alt="">Japan';
+        case 'r16BvM':
+            return '<img src="Pics/mexicoFlag.png" width="35" height="35" class="d-inline-block align-top" alt="">Mexico';
+        case 'r16CvD':
+            return '<img src="Pics/denmarkFlag.png" width="35" height="35" class="d-inline-block align-top" alt="">Denmark';
+        case 'r16CvE':
+            return '<img src="Pics/englandFlag.png" width="35" height="35" class="d-inline-block align-top" alt="">England';
+        case 'r16FvA':
+            return '<img src="Pics/argentinaFlag.png" width="35" height="35" class="d-inline-block align-top" alt="">Argentina';
+        case 'r16SvR':
+            return '<img src="Pics/russiaFlag.svg" width="35" height="35" class="d-inline-block align-top" alt="">Russia';
+        case 'r16SvS':
+            return '<img src="Pics/switzerlandFlag.png" width="35" height="35" class="d-inline-block align-top" alt="">Switzerland';
+        case 'r16UvP':
+            return '<img src="Pics/portugalFlag.png" width="35" height="35" class="d-inline-block align-top" alt="">Portugal';
+        default:
+            break;
+    }
+}
 
 function gameover(game){
     var t1 = parseInt(document.getElementById("cavsScore").value);
@@ -706,24 +789,102 @@ function payout(username, odds, amount, key, type, game){
 }
 
 function changeML(game, t1, t2){
-    //make tab active
-    document.getElementById(game+"Tabs").innerHTML= '<li class="nav-item"><a class="nav-link active"  onclick="changeML(\''+game+'\',\''+t1+'\', \''+t2+'\');">Moneyline</a></li><li class="nav-item"><a class="nav-link"  onclick="changeOU(\''+game+'\',\''+t1+'\', \''+t2+'\');">Over/Under</a></li><li class="nav-item"><a class="nav-link"  onclick="changeSpr(\''+game+'\',\''+t1+'\', \''+t2+'\');">Spread</a></li>';
-    //change buttons
-    document.getElementById(game).innerHTML = '<div class="card-body col-6"><img src="'+findFlag(t1)+'" width="70" height="70" class="d-inline-block align-top" alt=""><button class="btn btn-light" style="color:#dd2228" data-toggle="modal" data-target="#betModal5"><strong>-170</strong></div><div class="card-body col-6"><img src="'+findFlag(t2)+'" width="70" height="70" class="d-inline-block align-top" alt=""><button class="btn btn-light" style="color:#dd2228" data-toggle="modal" data-target="#betModal6"><strong>+150</strong></div>';
+    var ref1 = firebase.database().ref("Games/"+game+"/Pots/MLT1");
+    var ref2 = firebase.database().ref("Games/"+game+"/Pots/MLT2");
+    var odds1;
+    var odds2;
+
+    ref1.once('value').then(function(snapshot) {
+        odds1 = parseFloat(snapshot.val().odds);
+        ref2.once('value').then(function(snapshot) {
+            odds2 = parseFloat(snapshot.val().odds);
+            //make tab active
+            document.getElementById(game+"Tabs").innerHTML= '<li class="nav-item"><a class="nav-link active"  onclick="changeML(\''+game+'\',\''+t1+'\', \''+t2+'\');">Moneyline</a></li><li class="nav-item"><a class="nav-link"  onclick="changeOU(\''+game+'\',\''+t1+'\', \''+t2+'\');">Over/Under</a></li><li class="nav-item"><a class="nav-link"  onclick="changeSpr(\''+game+'\',\''+t1+'\', \''+t2+'\');">Spread</a></li>';
+            //change buttons
+            document.getElementById(game).innerHTML = '<div class="card-body col-6"><img src="'+findFlag(t1)+'" width="70" height="70" class="d-inline-block align-top" alt=""data-toggle="modal" data-target="#betModal1"onclick="showBet(\''+game+'\',\'MLT1\', \''+t1+'\', \''+t2+'\');"><button class="btn btn-light" style="color:#dd2228" data-toggle="modal" data-target="#betModal1"onclick="showBet(\''+game+'\',\'MLT1\', \''+t1+'\', \''+t2+'\');"><strong>'+odds1+'</strong></div><div class="card-body col-6"><img src="'+findFlag(t2)+'" width="70" height="70" class="d-inline-block align-top" alt=""data-toggle="modal" data-target="#betModal1" onclick="showBet(\''+game+'\',\'MLT2\', \''+t2+'\', \''+t1+'\');"><button class="btn btn-light" style="color:#dd2228" data-toggle="modal" data-target="#betModal1" onclick="showBet(\''+game+'\',\'MLT2\', \''+t2+'\', \''+t1+'\');"><strong>'+odds2+'</strong>';
+        });
+    });
 }
 
 function changeOU(game, t1, t2){
-    //change active tabs
-    document.getElementById(game+"Tabs").innerHTML= '<li class="nav-item"><a class="nav-link"  onclick="changeML(\''+game+'\',\''+t1+'\', \''+t2+'\');">Moneyline</a></li><li class="nav-item"><a class="nav-link active"  onclick="changeOU(\''+game+'\',\''+t1+'\', \''+t2+'\');">Over/Under</a></li><li class="nav-item"><a class="nav-link"  onclick="changeSpr(\''+game+'\',\''+t1+'\', \''+t2+'\');">Spread</a></li>';
-    //change buttons
-    document.getElementById(game).innerHTML = '<div class = "container"><strong>3.5 Total Goals</strong></div><div class="card-body col-6"><button class="btn btn-light" style="color:#dd2228" data-toggle="modal" data-target="#betModal3"><strong>Over<br>-110</strong></div><div class="card-body col-6"><button class="btn btn-light" style="color:#dd2228" data-toggle="modal" data-target="#betModal4"><strong>Under <br>-110</strong></div>';
+    var ref1 = firebase.database().ref("Games/"+game+"/Pots/TOver");
+    var ref2 = firebase.database().ref("Games/"+game+"/Pots/TUnder");
+    var pred;
+    var odds1;
+    var odds2;
+
+    ref1.once('value').then(function(snapshot) {
+        odds1 = parseFloat(snapshot.val().odds);
+        pred = parseFloat(snapshot.val().prediction)
+        ref2.once('value').then(function(snapshot) {
+            odds2 = parseFloat(snapshot.val().odds);
+            //change active tabs
+            document.getElementById(game+"Tabs").innerHTML= '<li class="nav-item"><a class="nav-link"  onclick="changeML(\''+game+'\',\''+t1+'\', \''+t2+'\');">Moneyline</a></li><li class="nav-item"><a class="nav-link active"  onclick="changeOU(\''+game+'\',\''+t1+'\', \''+t2+'\');">Over/Under</a></li><li class="nav-item"><a class="nav-link"  onclick="changeSpr(\''+game+'\',\''+t1+'\', \''+t2+'\');">Spread</a></li>';
+            //change buttons
+            document.getElementById(game).innerHTML = '<div class = "container"><strong>'+pred+' Total Goals</strong></div><div class="card-body col-6"><button class="btn btn-light" style="color:#dd2228" data-toggle="modal" data-target="#betModal1" onclick="showBet(\''+game+'\',\'TOver\', \''+t1+'\', \''+t2+'\');"><strong>Over<br>'+odds1+'</strong></div><div class="card-body col-6"><button class="btn btn-light" style="color:#dd2228" data-toggle="modal" data-target="#betModal1"onclick="showBet(\''+game+'\',\'TUnder\', \''+t1+'\', \''+t2+'\');"><strong>Under <br>'+odds2+'</strong></div>';
+        });
+    });
 }
 
 function changeSpr(game, t1, t2){
-    document.getElementById(game+"Tabs").innerHTML= '<li class="nav-item"><a class="nav-link"  onclick="changeML(\''+game+'\',\''+t1+'\', \''+t2+'\');">Moneyline</a></li><li class="nav-item"><a class="nav-link"  onclick="changeOU(\''+game+'\',\''+t1+'\', \''+t2+'\');">Over/Under</a></li><li class="nav-item"><a class="nav-link active"  onclick="changeSpr(\''+game+'\',\''+t1+'\', \''+t2+'\');">Spread</a></li>';
+    var ref1 = firebase.database().ref("Games/"+game+"/Pots/SprT1");
+    var ref2 = firebase.database().ref("Games/"+game+"/Pots/SprT2");
+    var spr1;
+    var odds1;
+    var spr2;
+    var odds2;
 
-    //change buttons
-    document.getElementById(game).innerHTML = '<div class="card-body col-6"><img src="'+findFlag(t1)+'" width="70" height="70" class="d-inline-block align-top" alt=""><button class="btn btn-light" style="color:#dd2228" data-toggle="modal" data-target="#betModal1"><strong>+1.5<br>-170</strong></div><div class="card-body col-6"><img src="'+findFlag(t2)+'" width="70" height="70" class="d-inline-block align-top" alt=""><button class="btn btn-light" style="color:#dd2228" data-toggle="modal" data-target="#betModal2"><strong>-1.5<br>+150</strong></div>';
+    ref1.once('value').then(function(snapshot) {
+        odds1 = parseFloat(snapshot.val().odds);
+        spr1 = parseFloat(snapshot.val().spread)
+        ref2.once('value').then(function(snapshot) {
+            odds2 = parseFloat(snapshot.val().odds);
+            spr2 = parseFloat(snapshot.val().spread)
+
+            document.getElementById(game+"Tabs").innerHTML= '<li class="nav-item"><a class="nav-link"  onclick="changeML(\''+game+'\',\''+t1+'\', \''+t2+'\');">Moneyline</a></li><li class="nav-item"><a class="nav-link"  onclick="changeOU(\''+game+'\',\''+t1+'\', \''+t2+'\');">Over/Under</a></li><li class="nav-item"><a class="nav-link active"  onclick="changeSpr(\''+game+'\',\''+t1+'\', \''+t2+'\');">Spread</a></li>';
+
+            //change buttons
+            document.getElementById(game).innerHTML = '<div class="card-body col-6"><img src="'+findFlag(t1)+'" width="70" height="70" class="d-inline-block align-top" alt=""data-toggle="modal" data-target="#betModal1"onclick="showBet(\''+game+'\',\'SprT1\', \''+t1+'\', \''+t2+'\');"><button class="btn btn-light" style="color:#dd2228" data-toggle="modal" data-target="#betModal1"onclick="showBet(\''+game+'\',\'SprT1\', \''+t1+'\', \''+t2+'\');"><strong>'+spr1+'<br>'+odds1+'</strong></div><div class="card-body col-6"><img src="'+findFlag(t2)+'" width="70" height="70" class="d-inline-block align-top" alt="" data-toggle="modal" data-target="#betModal1"onclick="showBet(\''+game+'\',\'SprT2\', \''+t2+'\', \''+t1+'\');"><button class="btn btn-light" style="color:#dd2228" data-toggle="modal" data-target="#betModal1"onclick="showBet(\''+game+'\',\'SprT2\', \''+t2+'\', \''+t1+'\');"><strong>'+spr2+'<br>'+odds2+'</strong></div>';
+        });
+    });
+}
+
+function name(t){
+    switch(t){
+        case 'Urg' : 
+            return "Uruguay";
+        case 'Port':
+            return "Portugal";
+        case 'Cro':
+            return "Croatia";
+        case 'Den':
+            return "Denmark";
+        case 'Arg':
+            return "Argentina";
+        case 'Fra':
+            return "France";
+        case 'Mex':
+            return "Mexico";
+        case 'Rus':
+            return "Russia";
+        case 'Spa':
+            return "Spain";
+        case 'Swe':
+            return "Sweden";
+        case 'Bra':
+            return "Brazil";
+        case 'Bel':
+            return "Belgium";
+        case 'Jap':
+            return "Japan";
+        case 'Col':
+            return "Colombia";
+        case 'Eng':
+            return "England";
+        default:
+            break;
+
+    }
 }
 
 function findFlag(t){
@@ -748,39 +909,128 @@ function findFlag(t){
             return "Pics/spainFlag.png";
         case 'Swe':
             return "Pics/swedenFlag.svg";
+        case 'Bra':
+            return "Pics/brazilFlag.png";
+        case 'Bel':
+            return "Pics/belgiumFlag.png";
+        case 'Jap':
+            return "Pics/japanFlag.png";
+        case 'Col':
+            return "Pics/colombiaFlag.png";
+        case 'Eng':
+            return "Pics/englandFlag.png";
         default:
             break;
 
     }
 }
 
-/*function showBet(game, type, t1, t2){
-    document.getElementById("betModal").innerHTML = 
-
-    <div class="modal fade" id="betModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="false">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Bet Preview (Spread)</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <div class="input-group input-group-sm mb-3">
-                <div class="input-group-prepend">
-                  <span class="input-group-text">Bet Amount</span>
-                </div>
-                <input type="text" class="form-control" id="betAmount1" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
-              </div>
-              Spread +4.5 to win (-110)
-              <br> $100 bet gets you $190.91.
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="bet('SprT1','00001','betAmount1');">Bet Now!</button>
-            </div>
-          </div>
-        </div>
-      </div>
+/*function showFeatured(){
+    data-toggle="modal" data-target="#betModal1"onclick="showBet(\''+game+'\',\'MLT1\', \''+t1+'\', \''+t2+'\');
 }*/
+
+function showBet(game, type, t1, t2){
+    var ref = firebase.database().ref("Games/" + game + "/Pots/"+type+"/");
+    var od;
+    var sp;
+    var prediction;
+    var body;
+
+    ref.once('value').then(function(snapshot) {
+            od = parseFloat(snapshot.val().odds);
+            sp = parseFloat(snapshot.val().spread);
+            prediction = parseFloat(snapshot.val().prediction);
+        
+    
+
+    
+    
+
+    switch (type){
+        case 'MLT1':
+        case 'MLT2':
+            body = 'You are betting on '+ name(t1)+' to win '+ name(t2)+'.<br> ';
+            break;
+        case 'SprT1':
+        case 'SprT2':
+            body = 'You are betting on ' +  name(t1) + ' to have more points than ' +  name(t2) + ' <strong> after applying '+ sp +' to ' +  name(t1) + '\'s final score.</strong>' ;
+            break;
+        case 'TOver':
+            body = 'You are betting that there will be more than ' + prediction + ' total goals in this match.';
+            break;
+        case 'TUnder':
+            body = 'You are betting that there will be less than ' + prediction + ' total goals in this match.';
+            break;
+        default:
+            break;
+    }
+
+    body += '<br>The payout for this is '+od;
+
+    if(od < 0)
+        body += '<br>$' + (-1* od) + ' bet to win $100';
+    else
+        body += '<br>$100 bet to win $'+od;
+
+    document.getElementById("betModal1").innerHTML = '<div class ="container"><div class="modal-dialog" role="document"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="exampleModalLabel">Bet Preview</h5> <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>'+ body +'<div class="modal-body"></div><div class="input-group input-group-sm mb-3"><div class="input-group-prepend"><span class="input-group-text">Bet Amount</span></div><input type="text" class="form-control" id="betAmount1" aria-label="Small" aria-describedby="inputGroup-sizing-sm"></div><div class="modal-footer" id="modalFooter"><button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button><button type="button" class="btn btn-primary" data-dismiss="modal" onclick="bet(\''+type+'\',\''+game+'\',\'betAmount1\');">Bet Now!</button></div></div></div></div></div>';
+    });
+}
+
+function updateOdds(){
+    var game = document.getElementById("game").value;
+    var MLT1odds = document.getElementById("MLT1odds").value;
+    var MLT2odds = document.getElementById("MLT2odds").value;
+    var SprT1odds = document.getElementById("SprT1odds").value;
+    var spreadT1 = document.getElementById("spreadT1").value;
+    var SprT2odds = document.getElementById("SprT2odds").value;
+    var spreadT2 = document.getElementById("spreadT2").value;
+    var TOverOdds = document.getElementById("TOverodds").value;
+    var predTotal = document.getElementById("prediction").value;
+    var TUnderOdds = document.getElementById("TUnderodds").value;
+
+    var ref = firebase.database().ref("Games/"+game);
+    ref.set({
+        Pots : {
+            MLT1 : {
+                bets : 0,
+                odds : MLT1odds,
+                total: 0
+            },
+            MLT2 : {
+                bets : 0,
+                odds : MLT2odds,
+                total: 0
+            },
+            SprT1 : {
+                bets : 0,
+                odds : SprT1odds,
+                spread : spreadT1,
+                total: 0
+            },
+            SprT2 : {
+                bets : 0,
+                odds : SprT2odds,
+                spread : spreadT2,
+                total: 0
+            },
+            TOver : {
+                bets : 0,
+                odds : TOverOdds,
+                prediction : predTotal,
+                total: 0
+            },
+            TUnder : {
+                bets : 0,
+                odds : TUnderOdds,
+                prediction : predTotal,
+                total: 0
+            }
+        },
+        gameID : game,
+        profit : {
+            ML : 0,
+            Spr : 0,
+            TOU : 0
+        }
+    });
+}
