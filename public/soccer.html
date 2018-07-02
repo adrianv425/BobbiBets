@@ -74,7 +74,15 @@
     }
     </style>
 </head>
-<body onload="loginButton();">
+ 
+  <!-- load all games -->
+<body
+  onload="loginButton();
+          letsee('r16BvJ');
+          letsee('r16CvE');
+          letsee('r16SvS');
+          letsee('r8UvF');
+          letsee('r8RvC');">
   <nav class="navbar sticky-top navbar-dark" style="background-color: #006e0b">
     <div class = "container">
     <a class="navbar-brand" href="index.html"><img src="Pics/bobHead.png" width="40" height="40" alt=""><img src="Pics/mainlogo.png" width="220" height="40"alt=""></a>
@@ -116,6 +124,7 @@
 <div class="container h-100">
 
   <div class="scrollmenu"style="background-color: #006e0b">
+    <a href="baseball.html"><button class="btn btn-outline-success active" type="button"><img src="Pics/baseball.png" width="40" height="40" class="d-inline-block align-top" alt=""></button></a>
     <a href="basketball.html"><button class="btn btn-outline-success" type="button"><img src="Pics/basketball.png" width="40" height="40" class="d-inline-block align-top" alt=""></button></a>
     <a href="soccer.html"><button class="btn btn-outline-success active" type="button"><img src="Pics/soccer.png" width="40" height="40" class="d-inline-block align-top" alt=""></button></a>
     <a href="football.html"><button class="btn btn-outline-success" type="button"><img src="Pics/football.png" width="40" height="40" class="d-inline-block align-top" alt=""></button></a>
@@ -129,108 +138,128 @@
 </div>
 
 </div>
-</header>
+</header>    
 
-  <br>
-
-<div class="container">
-    <div class="card text-center">
+<div class="container" id = "r16BvJx" style="display : none">
+    <br>
+    <div class="card text-center" >
       Round of 16
       <div class="card-header">
-          <Strong><img src="Pics/uruguayFlag.png" width="20" height="20" class="d-inline-block align-top" alt="">Uruguay vs. Portugal<img src="Pics/portugalFlag.png" width="20" height="20" class="d-inline-block align-top" alt=""></Strong><br>Sat. 6/30 11:00am
-        <ul class="nav nav-tabs card-header-tabs" id="r16UvPTabs">
+          <Strong><img src="Pics/belgiumFlag.png" width="20" height="20" class="d-inline-block align-top" alt="">Belgium vs. Japan<img src="Pics/japanFlag.png" width="20" height="20" class="d-inline-block align-top" alt=""></Strong>
+            <div class = "row"><div class "col"><p id="r16BvJt"></p>Mon. 7/2 11:00am</div> </div>
+        <ul class="nav nav-tabs card-header-tabs" id="r16BvJTabs">
           <li class="nav-item">
-            <a class="nav-link active" onclick="changeML('r16UvP','Urg', 'Port');">Moneyline</a>
+            <a class="nav-link disabled">Moneyline</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" onclick="changeOU('r16UvP','Urg', 'Port');">Over/Under</a>
+            <a class="nav-link disabled">Over/Under</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" onclick="changeSpr('r16UvP','Urg', 'Port');">Spread</a>
+            <a class="nav-link disabled">Spread</a>
           </li>
         </ul>
       </div>
-      <div class="row" id="r16UvP">
-        <div class="card-body col-6">
-          <img src="Pics/uruguayFlag.png" width="70" height="70" class="d-inline-block align-top" alt="">
-          <button class="btn btn-light" style="color:#dd2228" data-toggle="modal" data-target="#betModal5">
-            <strong>-170</strong>
-        </div>
-        <div class="card-body col-6">
-          <img src="Pics/portugalFlag.png" width="70" height="70" class="d-inline-block align-top" alt="">
-          <button class="btn btn-light" style="color:#dd2228" data-toggle="modal" data-target="#betModal6">
-            <strong>+150</strong>
+      <div class="row" id="r16BvJ">
+        
 
         </div>
       </div>
     </div>
   </div>
-<br>
-<div class="container">
-    <div class="card text-center">
-      Round of 16
-      <div class="card-header">
-          <Strong><img src="Pics/franceFlag.png" width="20" height="20" class="d-inline-block align-top" alt="">France vs. Agentina<img src="Pics/argentinaFlag.png" width="20" height="20" class="d-inline-block align-top" alt=""></Strong><br>Sat. 6/30 7:00am
-        <ul class="nav nav-tabs card-header-tabs" id="r16FvATabs">
-          <li class="nav-item">
-            <a class="nav-link active" onclick="changeML('r16FvA','Fra', 'Arg');">Moneyline</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" onclick="changeOU('r16FvA','Fra', 'Arg');">Over/Under</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" onclick="changeSpr('r16FvA','Fra', 'Arg');">Spread</a>
-          </li>
-        </ul>
-      </div>
-      <div class="row" id="r16FvA">
-        <div class="card-body col-6">
-          <img src="Pics/franceFlag.png" width="70" height="70" class="d-inline-block align-top" alt="">
-          <button class="btn btn-light" style="color:#dd2228" data-toggle="modal" data-target="#betModal5">
-            <strong>-170</strong>
-        </div>
-        <div class="card-body col-6">
-          <img src="Pics/argentinaFlag.png" width="70" height="70" class="d-inline-block align-top" alt="">
-          <button class="btn btn-light" style="color:#dd2228" data-toggle="modal" data-target="#betModal6">
-            <strong>+150</strong>
-
-        </div>
-      </div>
-    </div>
-  </div>
-<br><div class="container">
-    <div class="card text-center">
-      Round of 16
-      <div class="card-header">
-          <Strong><img src="Pics/spainFlag.png" width="20" height="20" class="d-inline-block align-top" alt="">Spain vs. Russia<img src="Pics/russiaFlag.svg" width="20" height="20" class="d-inline-block align-top" alt=""></Strong><br>Sun. 7/1 7:00am
-        <ul class="nav nav-tabs card-header-tabs" id="r16SvRTabs">
-          <li class="nav-item">
-            <a class="nav-link active" onclick="changeML('r16SvR','Spa', 'Rus');">Moneyline</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" onclick="changeOU('r16SvR','Spa', 'Rus');">Over/Under</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" onclick="changeSpr('r16SvR','Spa', 'Rus');">Spread</a>
-          </li>
-        </ul>
-      </div>
-      <div class="row" id="r16SvR">
-        <div class="card-body col-6">
-          <img src="Pics/spainFlag.png" width="70" height="70" class="d-inline-block align-top" alt="">
-          <button class="btn btn-light" style="color:#dd2228" data-toggle="modal" data-target="#betModal5">
-            <strong>-170</strong>
-        </div>
-        <div class="card-body col-6">
-          <img src="Pics/russiaFlag.svg" width="70" height="70" class="d-inline-block align-top" alt="">
-          <button class="btn btn-light" style="color:#dd2228" data-toggle="modal" data-target="#betModal6">
-            <strong>+150</strong>
-
-        </div>
-      </div>
-    </div>
-  </div>
-<br>    <br>
+        <div class="container"id="r16CvEx"style="display : none">
+          <br>
+            <div class="card text-center">
+              Round of 16
+              <div class="card-header">
+                  <Strong><img src="Pics/colombiaFlag.png" width="20" height="20" class="d-inline-block align-top" alt="">Colombia vs. England<img src="Pics/englandFlag.png" width="20" height="20" class="d-inline-block align-top" alt=""></Strong><br>Tue. 7/3 11:00am
+                <ul class="nav nav-tabs card-header-tabs" id="r16CvETabs">
+                  <li class="nav-item">
+                    <a class="nav-link" onclick="changeML('r16CvE','Col', 'Eng');">Moneyline</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" onclick="changeOU('r16CvE','Col', 'Eng');">Over/Under</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" onclick="changeSpr('r16CvE','Col', 'Eng');">Spread</a>
+                  </li>
+                </ul>
+              </div>
+              <div class="row" id="r16CvE">
+                
+        
+                </div>
+              </div>
+            </div>
+          </div><div class="container"id="r16SvSx"style="display : none">
+            <br>
+            <div class="card text-center">
+                Round of 16
+                <div class="card-header">
+                    <Strong><img src="Pics/swedenFlag.svg" width="20" height="20" class="d-inline-block align-top" alt="">Sweden vs. Switzerland<img src="Pics/switzerlandFlag.png" width="20" height="20" class="d-inline-block align-top" alt=""></Strong><br>Tue. 7/3 7:00am
+                  <ul class="nav nav-tabs card-header-tabs" id="r16SvSTabs">
+                    <li class="nav-item">
+                      <a class="nav-link" onclick="changeML('r16SvS','Swe', 'Swi');">Moneyline</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" onclick="changeOU('r16SvS','Swe', 'Swi');">Over/Under</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" onclick="changeSpr('r16SvS','Swe', 'Swi');">Spread</a>
+                    </li>
+                  </ul>
+                </div>
+                <div class="row" id="r16SvS">
+                  
+          
+                  </div>
+                </div>
+              </div>
+            </div><div class="container"id="r8UvFx"style="display : none">
+             <br>   
+              <div class="card text-center">
+                  Round of 8
+                  <div class="card-header">
+                      <Strong><img src="Pics/uruguayFlag.png" width="20" height="20" class="d-inline-block align-top" alt=""> Uruguay vs. France <img src="Pics/franceFlag.png" width="20" height="20" class="d-inline-block align-top" alt=""></Strong><br>Fri. 7/6 7:00am
+                    <ul class="nav nav-tabs card-header-tabs" id="r8UvFTabs">
+                      <li class="nav-item">
+                        <a class="nav-link" onclick="changeML('r8UvF','Uru', 'Fra');">Moneyline</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" onclick="changeOU('r8UvF','Uru', 'Fra');");>Over/Under</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" onclick="changeSpr('r8UvF','Uru', 'Fra');">Spread</a>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="row" id="r8UvF">
+                    
+                  </div>
+                </div>
+              </div>
+              <div class="container"id="r8RvCx"style="display : none">
+                <br>
+                  <div class="card text-center">
+                    Round of 8
+                    <div class="card-header">
+                        <Strong><img src="Pics/russiaFlag.svg" width="20" height="20" class="d-inline-block align-top" alt=""> Russia vs. Croatia <img src="Pics/croatiaFlag.png" width="20" height="20" class="d-inline-block align-top" alt=""></Strong><br>Sat. 7/7 11:00am
+                      <ul class="nav nav-tabs card-header-tabs" id="r8RvCTabs">
+                        <li class="nav-item">
+                          <a class="nav-link" onclick="changeML('r8RvC','Rus', 'Cro');">Moneyline</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" onclick="changeOU('r8RvC','Rus', 'Cro');");>Over/Under</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" onclick="changeSpr('r8RvC','Rus', 'Cro');">Spread</a>
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="row" id="r8RvC">
+                      
+                    </div>
+                  </div>
+                </div><br>     <br>
 
   
       <!--BetModal1 Spread Team1-->
@@ -262,136 +291,11 @@
         </div>
       </div>
 
-      <!--Mod2 Spread Team2-->
-      <div class="modal fade" id="betModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Bet Preview (Spread)</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <div class="input-group input-group-sm mb-3">
-                <div class="input-group-prepend">
-                  <span class="input-group-text">Bet Amount</span>
-                </div>
-                <input type="text" class="form-control" id="betAmount2" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
-              </div>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="bet('SprT2','00001','betAmount2');">Bet Now!</button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!--Mod3 Spread Team3-->
-
-      <div class="modal fade" id="betModal3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Bet Preview (Total)</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <div class="input-group input-group-sm mb-3">
-                <div class="input-group-prepend">
-                  <span class="input-group-text">Bet Amount</span>
-                </div>
-                <input type="text" class="form-control" id="betAmount3" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
-              </div>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="bet('TOver','00001','betAmount3');">Bet Now!</button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!--Mod4-->
-
-      <div class="modal fade" id="betModal4" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Bet Preview (Total)</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <div class="input-group input-group-sm mb-3">
-                <div class="input-group-prepend">
-                  <span class="input-group-text">Bet Amount</span>
-                </div>
-                <input type="text" class="form-control" id="betAmount4" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
-              </div>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="bet('TUnder','00001','betAmount4');">Bet Now!</button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="modal fade" id="betModal5" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Bet Preview (MoneyLine)</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <div class="input-group input-group-sm mb-3">
-                <div class="input-group-prepend">
-                  <span class="input-group-text">Bet Amount</span>
-                </div>
-                <input type="text" class="form-control" id="betAmount5" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
-              </div>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="bet('MLT1','00001','betAmount5');">Bet Now!</button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!--Mod6-->
-
-      <div class="modal fade" id="betModal6" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Bet Preview (MoneyLine)</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <div class="input-group input-group-sm mb-3">
-                <div class="input-group-prepend">
-                  <span class="input-group-text">Bet Amount</span>
-                </div>
-                <input type="text" class="form-control" id="betAmount6" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
-              </div>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="bet('MLT2','00001','betAmount6');">Bet Now!</button>
-            </div>
-          </div>
-        </div>
-      </div>
+      
     </div>
   </div>
   <br>
+  
 </body>
 <footer>
 

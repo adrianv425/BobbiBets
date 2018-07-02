@@ -92,7 +92,13 @@
   </style>
 </head>
 
-<body onload="loginButton();">
+<body onload="loginButton();
+        wc();
+        letsee('r16BvJ');
+          letsee('r16CvE');
+          letsee('r16SvS');
+          letsee('r8UvF');
+          letsee('r8RvC');">
   <nav class="navbar sticky-top navbar-dark" style="background-color: #006e0b">
     <div class="container">
       <a class="navbar-brand" href="index.html">
@@ -141,6 +147,8 @@
     <div class="container h-100">
 
       <div class="scrollmenu" style="background-color: #006e0b">
+        <a href="baseball.html">
+          <button class="btn btn-outline-success active" type="button"><img src="Pics/baseball.png" width="40" height="40" class="d-inline-block align-top" alt=""></button></a>
         <a href="basketball.html">
           <button class="btn btn-outline-success" type="button">
             <img src="Pics/basketball.png" width="40" height="40" class="d-inline-block align-top" alt="">
@@ -198,9 +206,8 @@
   <div class="container">
     <h4 style="color:#dd2228">Featured Bet of the Month</h4>
     <div class="jumbotron" style="background-color: #DDDfA2">
-      <h5 class="display-10">World Cup Russia 2018</h5>
+      <h5 class="display-9"><img src="Pics/wc.jpg" width="60" height="60" alt="">World Cup Russia 2018</h5>
       <div class="container">
-
 
         <hr class="my-4">
         <div class="media">
@@ -216,32 +223,9 @@
         </div>
         Bet for overall winner:<br>
         <div class="container">
-        <div class ="row-12 text-center">
+        <div class ="row-12 text-center" id="wc">
             
-            <Strong><img src="Pics/uruguayFlag.png" width="20" height="20" class="d-inline-block align-top" alt=""data-toggle="modal" data-target="#betModal1"onclick="showBet('wcwinner','uruguay', 'Urg');"> Uruguay</Strong><tab1><tab1></tab1></tab1>
-            <button class = "btn btn-sm">+2500</button><br>
             
-            <Strong><img src="Pics/brazilFlag.png" width="20" height="20" class="d-inline-block align-top" alt=""> Brazil</Strong><tab1><tab1></tab1></tab1>
-            <button class = "btn btn-sm">+110</button><br>
-
-            <Strong><img src="Pics/portugalFlag.png" width="20" height="20" class="d-inline-block align-top" alt=""> Portugal</Strong><tab1><tab1></tab1></tab1>
-            <button class = "btn btn-sm">+2500</button><br>
-
-            <Strong><img src="Pics/argentinaFlag.png" width="20" height="20" class="d-inline-block align-top" alt=""> Argentina</Strong><tab1><tab1></tab1></tab1><button class = "btn btn-sm">+1200</button><br>
-
-            <Strong><img src="Pics/croatiaFlag.png" width="20" height="20" class="d-inline-block align-top" alt=""> Croatia</Strong><tab1><tab1></tab1></tab1><button class = "btn btn-sm">+1200</button><br>
-
-            <Strong><img src="Pics/denmarkFlag.png" width="20" height="20" class="d-inline-block align-top" alt=""> Denmark</Strong><tab1><tab1></tab1></tab1><button class = "btn btn-sm">+8000</button><br>
-
-            <Strong><img src="Pics/russiaFlag.svg" width="20" height="20" class="d-inline-block align-top" alt=""> Russia</Strong><tab1><tab1></tab1></tab1><button class = "btn btn-sm">+6600</button><br>
-
-            <Strong><img src="Pics/mexicoFlag.png" width="20" height="20" class="d-inline-block align-top" alt=""> Mexico</Strong><tab1><tab1></tab1></tab1><button class = "btn btn-sm">+2500</button><br>
-
-            <Strong><img src="Pics/spainFlag.png" width="20" height="20" class="d-inline-block align-top" alt=""> Spain</Strong><tab1><tab1></tab1></tab1>
-            <button class = "btn btn-sm">+425</button><br>
-
-            <Strong><img src="Pics/swedenFlag.svg" width="20" height="20" class="d-inline-block align-top" alt=""> Sweden</Strong><tab1><tab1></tab1></tab1>
-            <button class = "btn btn-sm">+6000</button><br>
             
         </div>
         
@@ -249,167 +233,129 @@
     </div>
 
   </div>
-  
-<div class="container">
-    <div class="card text-center">
-      Round of 16
-      <div class="card-header">
-          <Strong><img src="Pics/franceFlag.png" width="20" height="20" class="d-inline-block align-top" alt="">France vs. Agentina<img src="Pics/argentinaFlag.png" width="20" height="20" class="d-inline-block align-top" alt=""></Strong><br>Sat. 6/30 7:00am
-        <ul class="nav nav-tabs card-header-tabs" id="r16FvATabs">
-          <li class="nav-item">
-            <a class="nav-link active" onclick="changeML('r16FvA','Fra', 'Arg');">Moneyline</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" onclick="changeOU('r16FvA','Fra', 'Arg');">Over/Under</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" onclick="changeSpr('r16FvA','Fra', 'Arg');">Spread</a>
-          </li>
-        </ul>
-      </div>
-      <div class="row" id="r16FvA">
-        
-      </div>
-    </div>
-  </div>
-<br>
-<div class="container">
-    <div class="card text-center">
-      Round of 16
-      <div class="card-header">
-          <Strong><img src="Pics/uruguayFlag.png" width="20" height="20" class="d-inline-block align-top" alt="">Uruguay vs. Portugal<img src="Pics/portugalFlag.png" width="20" height="20" class="d-inline-block align-top" alt=""></Strong><br>Sat. 6/30 11:00am
-        <ul class="nav nav-tabs card-header-tabs" id="r16UvPTabs">
-          <li class="nav-item">
-            <a class="nav-link active" onclick="changeML('r16UvP','Urg', 'Port');">Moneyline</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" onclick="changeOU('r16UvP','Urg', 'Port');">Over/Under</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" onclick="changeSpr('r16UvP','Urg', 'Port');">Spread</a>
-          </li>
-        </ul>
-      </div>
-      <div class="row" id="r16UvP">
-        
 
-        </div>
-      </div>
-    </div>
-  </div><br>
-  <div class="container">
-      <div class="card text-center">
-        Round of 16
-        <div class="card-header">
-            <Strong><img src="Pics/spainFlag.png" width="20" height="20" class="d-inline-block align-top" alt="">Spain vs. Russia<img src="Pics/russiaFlag.svg" width="20" height="20" class="d-inline-block align-top" alt=""></Strong><br>Sun. 7/1 7:00am
-          <ul class="nav nav-tabs card-header-tabs" id="r16SvRTabs">
-            <li class="nav-item">
-              <a class="nav-link active" onclick="changeML('r16SvR','Spa', 'Rus');">Moneyline</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" onclick="changeOU('r16SvR','Spa', 'Rus');">Over/Under</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" onclick="changeSpr('r16SvR','Spa', 'Rus');">Spread</a>
-            </li>
-          </ul>
-        </div>
-        <div class="row" id="r16SvR">
-          
-        </div>
-      </div>
-    </div>
-  <br><div class="container">
-    <div class="card text-center">
-      Round of 16
-      <div class="card-header">
-          <Strong><img src="Pics/croatiaFlag.png" width="20" height="20" class="d-inline-block align-top" alt="">Croatia vs. Denmark<img src="Pics/denmarkFlag.png" width="20" height="20" class="d-inline-block align-top" alt=""></Strong><br>Sun. 7/1 11:00am
-        <ul class="nav nav-tabs card-header-tabs" id="r16CvDTabs">
-          <li class="nav-item">
-            <a class="nav-link active" onclick="changeML('r16CvD','Cro', 'Den');">Moneyline</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" onclick="changeOU('r16CvD','Cro', 'Den');">Over/Under</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" onclick="changeSpr('r16CvD','Cro', 'Den');">Spread</a>
-          </li>
-        </ul>
-      </div>
-      <div class="row" id="r16CvD">
-        
-      </div>
-    </div>
-  </div><br>
-  <div class="container">
-      <div class="card text-center">
-        Round of 16
-        <div class="card-header">
-            <Strong><img src="Pics/brazilFlag.png" width="20" height="20" class="d-inline-block align-top" alt=""> Brazil vs. Mexico <img src="Pics/mexicoFlag.png" width="20" height="20" class="d-inline-block align-top" alt=""></Strong><br>Mon. 7/2 7:00am
-          <ul class="nav nav-tabs card-header-tabs" id="r16BvMTabs">
-            <li class="nav-item">
-              <a class="nav-link active" onclick="changeML('r16BvM','Bra', 'Mex');">Moneyline</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" onclick="changeOU('r16BvM','Bra', 'Mex');">Over/Under</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" onclick="changeSpr('r16BvM','Bra', 'Mex');">Spread</a>
-            </li>
-          </ul>
-        </div>
-        <div class="row" id="r16BvM">
-          
-        </div>
-      </div>
-    </div><br><div class="container">
-        <div class="card text-center">
-          Round of 16
-          <div class="card-header">
-              <Strong><img src="Pics/belgiumFlag.png" width="20" height="20" class="d-inline-block align-top" alt="">Belgium vs. Japan<img src="Pics/japanFlag.png" width="20" height="20" class="d-inline-block align-top" alt=""></Strong><br>Mon. 7/2 11:00am
-            <ul class="nav nav-tabs card-header-tabs" id="r16BvJTabs">
-              <li class="nav-item">
-                <a class="nav-link active" onclick="changeML('r16BvJ','Bel', 'Jap');">Moneyline</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" onclick="changeOU('r16BvJ','Bel', 'Jap');">Over/Under</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" onclick="changeSpr('r16BvJ','Bel', 'Jap');">Spread</a>
-              </li>
-            </ul>
-          </div>
-          <div class="row" id="r16BvJ">
-            
+
     
-            </div>
+  <div class="container" id = "r16BvJx" style="display : none">
+      <br>
+      <div class="card text-center" >
+        Round of 16
+        <div class="card-header">
+            <Strong><img src="Pics/belgiumFlag.png" width="20" height="20" class="d-inline-block align-top" alt="">Belgium vs. Japan<img src="Pics/japanFlag.png" width="20" height="20" class="d-inline-block align-top" alt=""></Strong>
+              <div class = "row"><div class "col"><p id="r16BvJt"></p>Mon. 7/2 11:00am</div> </div>
+          <ul class="nav nav-tabs card-header-tabs" id="r16BvJTabs">
+            <li class="nav-item">
+              <a class="nav-link disabled">Moneyline</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link disabled">Over/Under</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link disabled">Spread</a>
+            </li>
+          </ul>
+        </div>
+        <div class="row" id="r16BvJ">
+          
+  
           </div>
         </div>
-      </div><br>
-      <div class="container">
-          <div class="card text-center">
-            Round of 16
-            <div class="card-header">
-                <Strong><img src="Pics/colombiaFlag.png" width="20" height="20" class="d-inline-block align-top" alt="">Colombia vs. England<img src="Pics/englandFlag.png" width="20" height="20" class="d-inline-block align-top" alt=""></Strong><br>Tue. 7/3 11:00am
-              <ul class="nav nav-tabs card-header-tabs" id="r16CvETabs">
-                <li class="nav-item">
-                  <a class="nav-link active" onclick="changeML('r16CvE','Col', 'Eng');">Moneyline</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" onclick="changeOU('r16CvE','Col', 'Eng');">Over/Under</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" onclick="changeSpr('r16CvE','Col', 'Eng');">Spread</a>
-                </li>
-              </ul>
-            </div>
-            <div class="row" id="r16CvE">
-              
-      
+      </div>
+    </div>
+          <div class="container"id="r16CvEx"style="display : none">
+            <br>
+              <div class="card text-center">
+                Round of 16
+                <div class="card-header">
+                    <Strong><img src="Pics/colombiaFlag.png" width="20" height="20" class="d-inline-block align-top" alt="">Colombia vs. England<img src="Pics/englandFlag.png" width="20" height="20" class="d-inline-block align-top" alt=""></Strong><br>Tue. 7/3 11:00am
+                  <ul class="nav nav-tabs card-header-tabs" id="r16CvETabs">
+                    <li class="nav-item">
+                      <a class="nav-link" onclick="changeML('r16CvE','Col', 'Eng');">Moneyline</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" onclick="changeOU('r16CvE','Col', 'Eng');">Over/Under</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" onclick="changeSpr('r16CvE','Col', 'Eng');">Spread</a>
+                    </li>
+                  </ul>
+                </div>
+                <div class="row" id="r16CvE">
+                  
+          
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
-        </div><br>    <br>
+            </div><div class="container"id="r16SvSx"style="display : none">
+              <br>
+              <div class="card text-center">
+                  Round of 16
+                  <div class="card-header">
+                      <Strong><img src="Pics/swedenFlag.svg" width="20" height="20" class="d-inline-block align-top" alt="">Sweden vs. Switzerland<img src="Pics/switzerlandFlag.png" width="20" height="20" class="d-inline-block align-top" alt=""></Strong><br>Tue. 7/3 7:00am
+                    <ul class="nav nav-tabs card-header-tabs" id="r16SvSTabs">
+                      <li class="nav-item">
+                        <a class="nav-link" onclick="changeML('r16SvS','Swe', 'Swi');">Moneyline</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" onclick="changeOU('r16SvS','Swe', 'Swi');">Over/Under</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" onclick="changeSpr('r16SvS','Swe', 'Swi');">Spread</a>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="row" id="r16SvS">
+                    
+            
+                    </div>
+                  </div>
+                </div>
+              </div><div class="container"id="r8UvFx"style="display : none">
+               <br>   
+                <div class="card text-center">
+                    Round of 8
+                    <div class="card-header">
+                        <Strong><img src="Pics/uruguayFlag.png" width="20" height="20" class="d-inline-block align-top" alt=""> Uruguay vs. France <img src="Pics/franceFlag.png" width="20" height="20" class="d-inline-block align-top" alt=""></Strong><br>Fri. 7/6 7:00am
+                      <ul class="nav nav-tabs card-header-tabs" id="r8UvFTabs">
+                        <li class="nav-item">
+                          <a class="nav-link" onclick="changeML('r8UvF','Uru', 'Fra');">Moneyline</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" onclick="changeOU('r8UvF','Uru', 'Fra');");>Over/Under</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" onclick="changeSpr('r8UvF','Uru', 'Fra');">Spread</a>
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="row" id="r8UvF">
+                      
+                    </div>
+                  </div>
+                </div>
+                <div class="container"id="r8RvCx"style="display : none">
+                  <br>
+                    <div class="card text-center">
+                      Round of 8
+                      <div class="card-header">
+                          <Strong><img src="Pics/russiaFlag.svg" width="20" height="20" class="d-inline-block align-top" alt=""> Russia vs. Croatia <img src="Pics/croatiaFlag.png" width="20" height="20" class="d-inline-block align-top" alt=""></Strong><br>Sat. 7/7 11:00am
+                        <ul class="nav nav-tabs card-header-tabs" id="r8RvCTabs">
+                          <li class="nav-item">
+                            <a class="nav-link" onclick="changeML('r8RvC','Rus', 'Cro');">Moneyline</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" onclick="changeOU('r8RvC','Rus', 'Cro');");>Over/Under</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" onclick="changeSpr('r8RvC','Rus', 'Cro');">Spread</a>
+                          </li>
+                        </ul>
+                      </div>
+                      <div class="row" id="r8RvC">
+                        
+                      </div>
+                    </div>
+                  </div><br>     <br>
 
   
       <!--BetModal1 Spread Team1-->
@@ -436,7 +382,6 @@
       
       </div>
     </div>
-  </div>
   <br>
 </body>
 <footer>
