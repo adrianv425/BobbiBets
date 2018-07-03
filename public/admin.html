@@ -18,10 +18,18 @@
 </head>
 <body>
     <div class="container">
-      Game
-      <input type="text" class="form-control" id="game" aria-label="Small" aria-describedby="inputGroup-sizing-sm">Year
-      <input type="text" class="form-control" id="year" aria-label="Small" aria-describedby="inputGroup-sizing-sm">Month
-      <input type="text" class="form-control" id="month" aria-label="Small" aria-describedby="inputGroup-sizing-sm">Day
+      <h3>Add New Game:</h3>
+      <div class="container">
+      Game ID
+      <input type="text" class="form-control" id="game" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+      Card Title
+      <input type="text" class="form-control" id="cardTitle" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+      Team1<input type="text" class="form-control" id="team1" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+      Team2<input type="text" class="form-control" id="team2" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+      Path to Flag1<input type="text" class="form-control" id="flag1" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+      Path to Flag2<input type="text" class="form-control" id="flag2" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+      Year<input type="text" class="form-control" id="year" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+      Month<input type="text" class="form-control" id="month" aria-label="Small" aria-describedby="inputGroup-sizing-sm">Day
       <input type="text" class="form-control" id="day" aria-label="Small" aria-describedby="inputGroup-sizing-sm">Hour
       <input type="text" class="form-control" id="hour" aria-label="Small" aria-describedby="inputGroup-sizing-sm"> Min
       <input type="text" class="form-control" id="min" aria-label="Small" aria-describedby="inputGroup-sizing-sm">MLT1 odds:
@@ -36,11 +44,16 @@
       <input type="text" class="form-control" id="TUnderodds" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
       <button class="btn" onclick="updateOdds();">New Game</button>
     </div>
+  </div>
 
-    <div class="container">Game<input type="text" class="form-control" id="gameID" aria-label="Small" aria-describedby="inputGroup-sizing-sm">Score T1:
+    <div class="container">
+      <h3>Enter Final Score:</h3>
+      <div class="container">
+      Game<input type="text" class="form-control" id="gameID" aria-label="Small" aria-describedby="inputGroup-sizing-sm">Score T1:
       <input type="text" class="form-control" id="t1score" aria-label="Small" aria-describedby="inputGroup-sizing-sm">Score T2:
       <input type="text" class="form-control" id="t2score" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
       <button class="btn" onclick="gameover();">GameOver</button>
+      </div>
     </div>
 
 </body><script src="https://www.gstatic.com/firebasejs/5.0.4/firebase.js"></script>
