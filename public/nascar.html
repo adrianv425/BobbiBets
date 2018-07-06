@@ -15,67 +15,10 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
 <script src="https://cdn.firebase.com/libs/firebaseui/2.5.1/firebaseui.js"></script>
 <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/2.5.1/firebaseui.css" />
-<script>
-
-  function now(){
-  }
-</script>
-<style>
-  tab1 { padding-left: 1em; 
-          padding-right:1em;}
-  tab2 {padding-top: 1em;}
-  /* Place the navbar at the bottom of the page, and make it stick */
-.bnavbar {
-    background-color: #006e0b;
-    overflow: hidden;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-}
-
-/* Style the links inside the navigation bar */
-.bnavbar a {
-    float: left;
-    display: block;
-    color: #f2f2f2;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size: 17px;
-}
-
-/* Change the color of links on hover */
-.bnavbar a:hover {
-    background-color: #006e0b;
-    color: #dd2228;
-}
-
-/* Add a color to the active/current link */
-.bnavbar a.active {
-    background-color: #dd2228;
-    color: white;
-}
-    div.scrollmenu {
-        background-color: #333;
-        overflow: auto;
-        white-space: nowrap;
-    }
-    
-    div.scrollmenu a {
-        display: inline-block;
-        color: white;
-        text-align: center;
-        padding: 0px;
-        text-decoration: none;
-    }
-    
-    div.scrollmenu a:hover {
-        background-color: #777;
-    }
-    </style>
+<link rel="stylesheet" href="main.css">
 </head>
 <body onload="loginButton();">
-  <nav class="navbar sticky-top navbar-dark" style="background-color: #006e0b">
+  <nav class="bnavbar sticky-top navbar-dark" style="background-color: #006e0b">
     <div class = "container">
     <a class="navbar-brand" href="index.html"><img src="Pics/bobHead.png" width="40" height="40" alt=""><img src="Pics/mainlogo.png" width="220" height="40"alt=""></a>
   <!-- Button trigger modal -->
@@ -85,7 +28,7 @@
 
   
   </div><div class="container">
-  <strong><p id="balance" style = "color: #dd2228"></p></strong>
+  <strong><p id="balance"></p></strong>
 </div></nav>
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -112,10 +55,10 @@
       </div>
     </div>
   </div>
-<header class="masthead"style="background-color: #006e0b">
+<header class="masthead">
 <div class="container h-100">
 
-  <div class="scrollmenu"style="background-color: #006e0b">
+  <div class="scrollmenu">
     <a href="baseball.html"><button class="btn btn-outline-success" type="button"><img src="Pics/baseball.png" width="40" height="40" class="d-inline-block align-top" alt=""></button></a>
     <a href="basketball.html"><button class="btn btn-outline-success" type="button"><img src="Pics/basketball.png" width="40" height="40" class="d-inline-block align-top" alt=""></button></a>
     <a href="soccer.html"><button class="btn btn-outline-success" type="button"><img src="Pics/soccer.png" width="40" height="40" class="d-inline-block align-top" alt=""></button></a>

@@ -5,12 +5,12 @@
 function loginButton() {
     var u;
     if ((u = localStorage.getItem("userName")) != null) {
-        document.getElementById("loginButton").innerHTML = "Hi, " + u;
+        document.getElementById("loginButton").innerHTML = '<strong><p id="balance" style="color: #dd2228"></p></strong>';
         document.getElementById("loginButton").disabled = true;
         var ref = firebase.database().ref("/username/" + u + "/balance");
         ref.once("value").then(function (snapshot) {
             var val = snapshot.val().total;
-            document.getElementById("balance").innerHTML = "Balance: " + val;
+            document.getElementById("balance").innerHTML = "Balance:<br>" + val;
         });
     }
 }
@@ -23,30 +23,40 @@ function login() {
         balance: { total: 5000 },
         bets: 0
     });
-    document.getElementById("loginButton").innerHTML = "Hi, " + userName;
-    document.getElementById("loginButton").disabled = true;
-    document.getElementById("balance").innerHTML = 5000;
+    loginButton();
 }
 
-function letsee(p) {
-    setInterval(function () {
-        var d = new Date();
-        var ref = firebase.database().ref("/Games/" + p);
-        ref.once("value").then(function (snapshot) {
-            var val = new Date(snapshot.val().date);
-            var cardTitle = snapshot.val().cardTitle;
-            var flag1 = snapshot.val().flag1;
-            var flag2 = snapshot.val().flag2;
-            var team1 = snapshot.val().team1;
-            var team2 = snapshot.val().team2;
-            var date = new Date(snapshot.val().date);
-            var gameID = snapshot.val().gameID;
+function letsee(game) {
 
-            if (('Invalid Date' == val) || (d < val)) {
-                document.getElementById(p + 'x').innerHTML = '<br><div class="card text-center">' + cardTitle + '<div class="card-header"><Strong><img src="' + flag1 + '" width="20" height="20" class="d-inline-block align-top" alt=""> ' + team1 + ' vs. ' + team2 + ' <img src="' + flag2 + '" width="20" height="20" class="d-inline-block align-top" alt=""></Strong><div class = "col"><p>' + date.toLocaleString() + '</p></div><ul class="nav nav-tabs card-header-tabs" id="' + gameID + 'Tabs"><li class="nav-item"><a class="nav-link"onclick="changeML(\'' + gameID + '\');">Moneyline</a></li><li class="nav-item"><a class="nav-link"onclick="changeOU(\'' + gameID + '\');">Over/Under</a></li><li class="nav-item"><a class="nav-link"onclick="changeSpr(\'' + gameID + '\');">Spread</a></li></ul></div><div class="row" id="' + gameID + '"></div></div></div>';
-            }
-        });
-    }, 5000);
+    var d = new Date();
+    var ref = firebase.database().ref("/Games/" + game);
+    ref.once("value").then(function (snapshot) {
+        var val = new Date(snapshot.val().date);
+        var cardTitle = snapshot.val().cardTitle;
+        var flag1 = snapshot.val().flag1;
+        var flag2 = snapshot.val().flag2;
+        var team1 = snapshot.val().team1;
+        var team2 = snapshot.val().team2;
+        var date = new Date(snapshot.val().date);
+        var odds1 = snapshot.val().Pots.MLT1.odds;
+        var odds2 = snapshot.val().Pots.MLT2.odds;
+        var odds01 = snapshot.val().Pots.TUnder.odds;
+        var odds02 = snapshot.val().Pots.TOver.odds;
+        var pred = snapshot.val().Pots.TOver.prediction;
+        var odds001 = snapshot.val().Pots.SprT1.odds;
+        var odds002 = snapshot.val().Pots.SprT2.odds;
+        var spr1 = snapshot.val().Pots.SprT1.spread;
+        var spr2 = snapshot.val().Pots.SprT2.spread;
+
+        var gameID = snapshot.val().gameID;
+
+
+        console.log(odds1);
+
+        if (('Invalid Date' == val) || (d < val)) {
+            document.getElementById(game + 'x').innerHTML = '<div class="card text-center">' + cardTitle + '<div class="card-header"><Strong><img src="' + flag1 + '" width="20" height="20" class="d-inline-block align-top" alt=""> ' + team1 + ' vs. ' + team2 + ' <img src="' + flag2 + '" width="20" height="20" class="d-inline-block align-top" alt=""></Strong><div class = "col"><p>' + date.toLocaleString() + '</p></div></div><h5>MoneyLine</h5><div class="row" id="' + gameID + '"><div class="card-body col-6"><img src="' + flag1 + '" width="70" height="70" class="d-inline-block align-top" alt=""data-toggle="modal" data-target="#betModal1"onclick="showBet(\'' + game + '\',\'MLT1\', \'' + team1 + '\', \'' + team2 + '\');"><button class="btn btn-light" style="color:#dd2228" data-toggle="modal" data-target="#betModal1"onclick="showBet(\'' + game + '\',\'MLT1\', \'' + team1 + '\', \'' + team2 + '\');"><strong>' + plus(odds1) + '</strong></div><div class="card-body col-6"><img src="' + flag2 + '" width="70" height="70" class="d-inline-block align-top" alt=""data-toggle="modal" data-target="#betModal1" onclick="showBet(\'' + game + '\',\'MLT2\', \'' + team2 + '\', \'' + team1 + '\');"><button class="btn btn-light" style="color:#dd2228" data-toggle="modal" data-target="#betModal1" onclick="showBet(\'' + game + '\',\'MLT2\', \'' + team2 + '\', \'' + team1 + '\');"><strong>' + plus(odds2) + '</strong></div><div class = "container"><strong><h5>Over/Under</h5>' + pred + ' Total Score</strong></div><div class="card-body col-6"><button class="btn btn-light" style="color:#dd2228" data-toggle="modal" data-target="#betModal1" onclick="showBet(\'' + game + '\',\'TOver\', \'' + team1 + '\', \'' + team2 + '\');"><strong>Over<br>' + plus(odds01) + '</strong></div><div class="card-body col-6"><button class="btn btn-light" style="color:#dd2228" data-toggle="modal" data-target="#betModal1"onclick="showBet(\'' + game + '\',\'TUnder\', \'' + team1 + '\', \'' + team2 + '\');"><strong>Under <br>' + plus(odds02) + '</strong></div></div><h5>Spread +/- '+spr1+'</h5><div class="row"><div class="card-body col-6"><img src="' + flag1 + '" width="70" height="70" class="d-inline-block align-top" alt=""data-toggle="modal" data-target="#betModal1"onclick="showBet(\'' + game + '\',\'SprT1\', \'' + team1 + '\', \'' + team2 + '\');"><button class="btn btn-light" style="color:#dd2228" data-toggle="modal" data-target="#betModal1"onclick="showBet(\'' + game + '\',\'SprT1\', \'' + team1 + '\', \'' + team2 + '\');"><strong>' + plus(spr1) + '<br>' + plus(odds001) + '</strong></div><div class="card-body col-6"><img src="' + flag2 + '" width="70" height="70" class="d-inline-block align-top" alt="" data-toggle="modal" data-target="#betModal1"onclick="showBet(\'' + game + '\',\'SprT2\', \'' + team2 + '\', \'' + team1 + '\');"><button class="btn btn-light" style="color:#dd2228" data-toggle="modal" data-target="#betModal1"onclick="showBet(\'' + game + '\',\'SprT2\', \'' + team2 + '\', \'' + team1 + '\');"><strong>' + plus(spr2) + '<br>' + plus(odds002) + '</strong></div></div></div></div>';
+        }
+    });
 }
 
 function wc() {
@@ -1070,7 +1080,7 @@ function showBet(game, type, x, y) {
 
 
 
-            body += '<br>The payout for this is ' + od;
+            body += 'The payout for this is ' + od;
 
             if (od < 0)
                 body += '<br>$' + (-1 * od) + ' bet to win $100';

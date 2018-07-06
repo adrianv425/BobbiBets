@@ -18,209 +18,178 @@
         crossorigin="anonymous"></script>
     <script src="https://cdn.firebase.com/libs/firebaseui/2.5.1/firebaseui.js"></script>
     <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/2.5.1/firebaseui.css" />
-    <script>
-
-        function now() {
-
-        }
-    </script>
-  <style>
-        tab1 {
-          padding-left: 1em;
-          padding-right: 1em;
-        }
-    
-        tab2 {
-          padding-top: 1em;
-        }
-    
-        /* Place the navbar at the bottom of the page, and make it stick */
-    
-        .bnavbar {
-          background-color: #006e0b;
-          overflow: hidden;
-          position: fixed;
-          bottom: 0;
-          width: 100%;
-        }
-    
-        /* Style the links inside the navigation bar */
-    
-        .bnavbar a {
-          float: left;
-          display: block;
-          color: #f2f2f2;
-          text-align: center;
-          padding: 10px 12px;
-          text-decoration: none;
-          font-size: 17px;
-        }
-    
-        /* Change the color of links on hover */
-    
-        .bnavbar a:hover {
-          background-color: #006e0b;
-          color: #dd2228;
-        }
-    
-        /* Add a color to the active/current link */
-    
-        .bnavbar a.active {
-          background-color: #dd2228;
-          color: white;
-        }
-    
-        div.scrollmenu {
-          background-color: #333;
-          overflow: auto;
-          white-space: nowrap;
-        }
-    
-        div.scrollmenu a {
-          display: inline-block;
-          color: white;
-          text-align: center;
-          padding: 0px;
-          text-decoration: none;
-        }
-    
-        div.scrollmenu a:hover {
-          background-color: #777;
-        }
-      </style>
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="sticky.js">
 </head>
 
-</head>
-
-<body onload="loginButton();displayBets();">
-        <nav class="navbar sticky-top navbar-dark" style="background-color: #006e0b">
-          <div class="container">
-            <a class="navbar-brand" href="index.html">
-              <img src="Pics/bobHead.png" width="40" height="40" alt="">
-              <img src="Pics/mainlogo.png" width="220" height="40" alt="">
-            </a>
-            <!-- Button trigger modal -->
-            <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModal" id="loginButton" onclick="">
-              Login
-            </button>
-      
-      
-          </div>
-          <div class="container">
-            <strong>
-              <p id="balance" style="color: #dd2228"></p>
-            </strong>
-          </div>
-        </nav>
-        <!-- Modal -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Sign In</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body">
-                <div class="input-group input-group-sm mb-3">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text">UserName</span>
-                  </div>
-                  <input type="text" class="form-control" id="userName" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
-                </div>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="login();">Login!</button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <header class="masthead" style="background-color: #006e0b">
-          <div class="container h-100">
-      
-            <div class="scrollmenu" style="background-color: #006e0b">
-                <a href="baseball.html"><button class="btn btn-outline-success" type="button"><img src="Pics/baseball.png" width="40" height="40" class="d-inline-block align-top" alt=""></button></a>
-                <a href="basketball.html">
-                <button class="btn btn-outline-success" type="button">
-                  <img src="Pics/basketball.png" width="40" height="40" class="d-inline-block align-top" alt="">
-                </button>
-              </a>
-              <a href="soccer.html">
-                <button class="btn btn-outline-success" type="button">
-                  <img src="Pics/soccer.png" width="40" height="40" class="d-inline-block align-top" alt="">
-                </button>
-              </a>
-              <a href="football.html">
-                <button class="btn btn-outline-success" type="button">
-                  <img src="Pics/football.png" width="40" height="40" class="d-inline-block align-top" alt="">
-                </button>
-              </a>
-              <a href="hockey.html">
-                <button class="btn btn-outline-success" type="button">
-                  <img src="Pics/hockey.png" width="40" height="40" class="d-inline-block align-top" alt="">
-                </button>
-              </a>
-              <a href="boxing.html">
-                <button class="btn btn-outline-success" type="button">
-                  <img src="Pics/boxing.png" width="40" height="40" class="d-inline-block align-top" alt="">
-                </button>
-              </a>
-              <a href="nascar.html">
-                <button class="btn btn-outline-success" type="button">
-                  <img src="Pics/nascar.png" width="40" height="40" class="d-inline-block align-top" alt="">
-                </button>
-              </a>
-              <a href="horses.html">
-                <button class="btn btn-outline-success" type="button">
-                  <img src="Pics/horse.png" width="40" height="40" class="d-inline-block align-top" alt="">
-                </button>
-              </a>
-              <a href="mma.html">
-                <button class="btn btn-outline-success" type="button">
-                  <img src="Pics/MMA.png" width="40" height="40" class="d-inline-block align-top" alt="">
-                </button>
-              </a>
-              <a href="golf.html">
-                <button class="btn btn-outline-success" type="button">
-                  <img src="Pics/golf.svg" width="40" height="40" class="d-inline-block align-top" alt="">
-                </button>
-              </a>
-      
-            </div>
-      
-      
-          </div>
-        </header>
-
-    <div class="container">
-
-        <h4 style="color:#dd2228">My Bets</h4>
-        <div class="jumbotron jumbotron-fluid" style="background-color: #DDDfA2">
-
-            <div class="container" id="betDisplay">
-                
-            </div>
-        </div>
+<body style="background-image: url('Pics/test.png'); background-repeat: repeat;" onload="loginButton();displayBets();">
+  
+<nav class="navbar sticky-top navbar-dark">
+  <div class="container">
+    <div class="col">
+        <div class="row">
+    <a class="navbar-brand" href="index.html">
+      <img src="Pics/bobHead.png" width="40" height="40" alt="">
+      <img src="Pics/mainlogo.png" width="220" height="40" alt="">
+    </a>
+  
+    <!-- Button trigger modal -->
+    <div class = "text" data-toggle="modal" data-target="#exampleModal" id="loginButton" onclick="">
+      Login
+    </div>
     </div>
 
+  </div>
+  
+    
+  </div>
+</nav>
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Sign In</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="input-group input-group-sm mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text">UserName</span>
+          </div>
+          <input type="text" class="form-control" id="userName" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="login();">Login!</button>
+      </div>
+    </div>
+  </div>
+</div>
+<header class="masthead">
+  <div class="container h-100">
+
+    <div class="scrollmenu" >
+      <a href="baseball.html">
+        <button class="btn btn-outline-success" type="button">
+          <img src="Pics/baseball.png" width="40" height="40" class="d-inline-block align-top" alt="">
+        </button>
+      </a>
+      <a href="basketball.html">
+        <button class="btn btn-outline-success" type="button">
+          <img src="Pics/basketball.png" width="40" height="40" class="d-inline-block align-top" alt="">
+        </button>
+      </a>
+      <a href="soccer.html">
+        <button class="btn btn-outline-success" type="button">
+          <img src="Pics/soccer.png" width="40" height="40" class="d-inline-block align-top" alt="">
+        </button>
+      </a>
+      <a href="football.html">
+        <button class="btn btn-outline-success" type="button">
+          <img src="Pics/football.png" width="40" height="40" class="d-inline-block align-top" alt="">
+        </button>
+      </a>
+      <a href="hockey.html">
+        <button class="btn btn-outline-success" type="button">
+          <img src="Pics/hockey.png" width="40" height="40" class="d-inline-block align-top" alt="">
+        </button>
+      </a>
+      <a href="boxing.html">
+        <button class="btn btn-outline-success" type="button">
+          <img src="Pics/boxing.png" width="40" height="40" class="d-inline-block align-top" alt="">
+        </button>
+      </a>
+      <a href="nascar.html">
+        <button class="btn btn-outline-success" type="button">
+          <img src="Pics/nascar.png" width="40" height="40" class="d-inline-block align-top" alt="">
+        </button>
+      </a>
+      <a href="horses.html">
+        <button class="btn btn-outline-success" type="button">
+          <img src="Pics/horse.png" width="40" height="40" class="d-inline-block align-top" alt="">
+        </button>
+      </a>
+      <a href="mma.html">
+        <button class="btn btn-outline-success" type="button">
+          <img src="Pics/MMA.png" width="40" height="40" class="d-inline-block align-top" alt="">
+        </button>
+      </a>
+      <a href="golf.html">
+        <button class="btn btn-outline-success" type="button">
+          <img src="Pics/golf.svg" width="40" height="40" class="d-inline-block align-top" alt="">
+        </button>
+      </a>
+
+    </div>
+
+
+  </div>
+</header>
+
+
+
+
+<section class="container">
+
+  
+  <div class="content" style="background-color: #fff">
+    <h4 style="color:#dd2228">My Bets</h4>
+      <div class="container" id="betDisplay">
+          
+      </div>
+  </div>
+</section>>
+
+
+
+<!--BetModal1 Spread Team1-->
+<div class="modal fade" id="betModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel"></h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <div class="container" id="r8SvEx">
+                <div class="col text-center"><img src="Pics/loading.gif" width="40" height="40" class="d-inline-block align-top" alt="">
+                </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal"></button>
+          <button type="button" class="btn btn-primary"></button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+</div>
+<br>
 </body>
 <footer>
+<section> <div class="bnavbar">
+  <div class="container">
+    <a href="index.html">
+      <tab1>Bet</tab1>
+    </a>
+    <a href="myBets.html" class="active">
+      <tab1>My Bets</tab1>
+    </a>
+    <a href="myAccount.html">
+      <tab1>Account</tab1>
+    </a>
+  </div>
+</div>
+</section>
 
-    <div class="bnavbar">
-        <div class="container">
-            <a href="index.html">
-                <tab1>Home</tab1>
-            </a>
-            <a href="myBets.html" class="active">
-                <tab1>My Bets</tab1>
-            </a>
-            <a href="myAccount.html">
-                <tab1>Account</tab1>
-            </a>
-        </div>
-    </div>
 </footer>
 <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase.js"></script>
 <script>

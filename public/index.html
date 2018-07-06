@@ -8,7 +8,9 @@
   <meta name="author" content="">
 
   <title>BobbiBets</title>
+  <link rel="stylesheet" href="main.css">
   <script src='index.js'></script>
+  <script src="sticky.js"></script>
   <!-- Bootstrap core CSS -->
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
     crossorigin="anonymous"></script>
@@ -21,99 +23,31 @@
   <script src="https://cdn.firebase.com/libs/firebaseui/2.5.1/firebaseui.js"></script>
   <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/2.5.1/firebaseui.css" />
 
-  <script>
-
-    function now() {
-    }
-  </script>
-  <style>
-    tab1 {
-      padding-left: 1em;
-      padding-right: 1em;
-    }
-
-    tab2 {
-      padding-top: 1em;
-    }
-
-    /* Place the navbar at the bottom of the page, and make it stick */
-
-    .bnavbar {
-      background-color: #006e0b;
-      overflow: hidden;
-      position: fixed;
-      bottom: 0;
-      width: 100%;
-    }
-
-    /* Style the links inside the navigation bar */
-
-    .bnavbar a {
-      float: left;
-      display: block;
-      color: #f2f2f2;
-      text-align: center;
-      padding: 10px 12px;
-      text-decoration: none;
-      font-size: 17px;
-    }
-
-    /* Change the color of links on hover */
-
-    .bnavbar a:hover {
-      background-color: #006e0b;
-      color: #dd2228;
-    }
-
-    /* Add a color to the active/current link */
-
-    .bnavbar a.active {
-      background-color: #dd2228;
-      color: white;
-    }
-
-    div.scrollmenu {
-      background-color: #333;
-      overflow: auto;
-      white-space: nowrap;
-    }
-
-    div.scrollmenu a {
-      display: inline-block;
-      color: white;
-      text-align: center;
-      padding: 0px;
-      text-decoration: none;
-    }
-
-    div.scrollmenu a:hover {
-      background-color: #777;
-    }
-  </style>
 </head>
 
-<body onload="loginButton();
+<body style="background-image: url('Pics/test.png'); background-repeat: repeat;"onload="loginButton();
         wc();
         letsee('r8BvB');
           letsee('r8UvF');
-          letsee('r8RvC');letsee('mlbPitvLAD7_3_18');letsee('mlbPitvLAD7_4_18');letsee('mlbLAAvSea7_3_18');">
-  <nav class="navbar sticky-top navbar-dark" style="background-color: #006e0b">
+          letsee('r8RvC');letsee('r8SvE')">
+  <nav class="navbar sticky-top navbar-dark">
     <div class="container">
+      <div class="col">
+          <div class="row">
       <a class="navbar-brand" href="index.html">
         <img src="Pics/bobHead.png" width="40" height="40" alt="">
         <img src="Pics/mainlogo.png" width="220" height="40" alt="">
       </a>
+    
       <!-- Button trigger modal -->
-      <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModal" id="loginButton" onclick="">
+      <div class = "text" data-toggle="modal" data-target="#exampleModal" id="loginButton" onclick="">
         Login
-      </button>
-
+      </div>
+      </div>
 
     </div>
-    <div class="container">
-      <strong>
-        <p id="balance" style="color: #dd2228"></p>
-      </strong>
+    
+      
     </div>
   </nav>
   <!-- Modal -->
@@ -141,10 +75,9 @@
       </div>
     </div>
   </div>
-  <header class="masthead" style="background-color: #006e0b">
-    <div class="container h-100">
+  <header class="masthead">
 
-      <div class="scrollmenu" style="background-color: #006e0b">
+      <div class="scrollmenu" >
         <a href="baseball.html">
           <button class="btn btn-outline-success" type="button">
             <img src="Pics/baseball.png" width="40" height="40" class="d-inline-block align-top" alt="">
@@ -196,75 +129,88 @@
           </button>
         </a>
 
-      </div>
+
 
 
     </div>
+
   </header>
 
 
-
-  <div class="container">
-    <h4 style="color:#dd2228">Featured Bet of the Month</h4>
-    <div class="jumbotron" style="background-color: #DDDfA2">
-      <h5 class="display-9">
-        <img src="Pics/wc.jpg" width="60" height="60" alt="">World Cup Russia 2018</h5>
-      <div class="container">
-
-        <hr class="my-4">
-        <div class="media">
-          <img class="align-self-center mr-3" src="Pics/BobbiBody.png" alt="Bobbi" width="60" height="60">
-          <div class="media-body">
-            <h5>Bobbi says...</h5>
-            <p style="color:#dd2228">
-              "I'm going for Brazil. Portugal will be great competitor but I have to go with Brazil."
-              <br>
-
-            </p>
-
-          </div>
+  <section class="container">
+    <br>
+        <div class="content heartbeat">
+        <div class="card text-center">
+          <div class="card-header color-change-2x">  
+          <h4 style="font-size: 16px; color:#dd2228">Featured Bet of the Month</h4>
         </div>
-        Bet for overall winner:
-        <br>
-        <div class="container">
-          <div class="row-12 text-center" id="wc">
-              <img src="Pics/loading.gif" width="40" height="40" class="d-inline-block align-top" alt="">
+          
+          <div class="container">
+              <h6>Who will win the World Cup?</h6><br>
+              <div class="worldcup kenburns-top">
+                <div class="card-body"style="text-align : right">
+                    <img class="align-top mr-3" data-toggle="collapse" data-target="#opinion" src="Pics/BobbiBody.png" alt="Bobbi" width="60" height="60">  
+                  <p data-toggle="collapse" data-target="#opinion">Bobbi says...</p>
+
+                 
+              
+                <div class="collapse" id="opinion">
+                
+                <p style="font-size: 12px;color:white">
+                  "Brazil is looking great as always. Keep an eye on France as they have been proving their toughness all tournment long. My money is on Brazil though."    
+                </p>
+              </div>
+              </div>
+              </div>
+              
+            
+
+            <br>
+            <p style="color: black; text-align: left; font-weight: bold; font-size: 15px">FIFA World Cup Russia 2018 Champion:</p>
+            <div class="container">
+              <div class="row-12 text-center" id="wc">
+                  <img src="Pics/loading.gif" width="40" height="40" class="d-inline-block align-top" alt="">
+              </div>
+            </div>
+          </div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </div>
-
-
-  <div class="container" id="r16CvEx">
-    
-  </div>
-  <div class="container" id="mlbPitvLAD7_3_18x">
-    
-  </div>
-  <div class="container" id="mlbLAAvSea7_3_18x">
-    
-  </div>
-  <div class="container" id="mlbPitvLAD7_4_18x">
-    
-  </div>
-  <div class="container" id="r8UvFx">
-      <div class="col text-center"><img src="Pics/loading.gif" width="40" height="40" class="d-inline-block align-top" alt="">
-      </div>
-  </div>
-  <div class="container" id="r8BvBx">
-    
-    </div>
-  <div class="container" id="r8RvCx">
-    
-  </div>
+      </section>
   
-    <div class="container" id="r8SvEx">
+
+      <section class="container">
+        <br>
+  <div class="content" id="r8UvFx">
+    
+  </div>
+  </section>
+
+  <section class="container">
+    <br>
+  <div class="content" id="r8BvBx">
     
     </div>
-
-  <br>
-  <br>
+    </section>
+    <section class="container">
+        <br>
+        <div class="content" id="r8SvEx">
+        
+        </div>
+        </section>
+    <section class="container">
+      <br>
+  <div class="content" id="r8RvCx">
+    
+  </div>
+  </section>
+  <section class="container">
+    <br>
+    <div class="content" id="r8SvEx">
+    
+    </div>
+    </section>
 
 
   <!--BetModal1 Spread Team1-->
@@ -292,12 +238,12 @@
 
 
   </div>
-  </div>
-  <br>
-</body>
-<footer>
+  
 
-  <div class="bnavbar">
+</body>
+
+<section> <div class="bnavbar">
+
     <div class="container">
       <a href="index.html" class="active">
         <tab1>Bet</tab1>
@@ -310,6 +256,8 @@
       </a>
     </div>
   </div>
+</section>
+<footer>
 </footer>
 <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase.js"></script>
 <script>
