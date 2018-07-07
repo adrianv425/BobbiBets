@@ -10,15 +10,21 @@ tab1 {
   .text {
     float: right;
     display: block;
-    color: #f2f2f2;
+    color: black;
     text-align: right;
     padding: 5px 10px;
-    text-decoration: none;
-    font-size: 12px;
+    font-weight: bold;
+    font-size: 14px;
     position: fixed;
-    left : 290px;
-    top : 7px
+    right : 30px;
+    top : 17px;
   }
+
+  h3{
+    color: white;
+    margin: 0 0;
+  }
+
   section {
     z-index: 1;
     position: relative;
@@ -50,7 +56,7 @@ h1 {
 
 
 .navbar{
-  background-color: #006e0b;
+  background-image: url('Pics/navBack2.png');
   display: block;
   overflow: hidden;
   position: fixed;
@@ -79,14 +85,21 @@ h1 {
 	        animation: color-change-2x 2s linear infinite alternate both;
 }
 
+.tracking-out-contract-bck-bottom {
+	-webkit-animation: tracking-out-contract-bck-bottom 0.8s cubic-bezier(0.550, 0.085, 0.680, 0.530) 6 alternate-reverse both;
+	        animation: tracking-out-contract-bck-bottom 0.8s cubic-bezier(0.550, 0.085, 0.680, 0.530) 6 alternate-reverse both;
+}
+
   /* Place the navbar at the bottom of the page, and make it stick */
 
   .bnavbar {
-    background-color: #006e0b;
+
+    background-image: url('Pics/navBack2.png');
     display: block;
     overflow: hidden;
     position: fixed;
     bottom: 0;
+    height: 1.7em;
     width: 100%;
   }
 
@@ -95,13 +108,12 @@ h1 {
   /* Style the links inside the navigation bar */
 
   .bnavbar a {
+    align-content: center;
     float: left;
     display: block;
-    color: #f2f2f2;
-    text-align: right;
-    padding: 7px 12px;
+    color: black;
     text-decoration: none;
-    font-size: 14px;
+    font-size: 16px;
   }
 
   /* Change the color of links on hover */
@@ -119,7 +131,7 @@ h1 {
   }
 
   div.scrollmenu {
-
+    background-image: url('Pics/navBack2.png');
     background-color: #006e0b;
     opacity: .95;
     overflow: auto;
@@ -144,21 +156,27 @@ h1 {
     height: 600px;
 }
 section:nth-of-type(1) {
-    height: 750px;
+    height: 800px;
 }
 section:nth-of-type(2) {
-    height: 750px;
+    height: 800px;
 }
 section:nth-of-type(3) {
-    height: 750px;
+    height: 800px;
 }
 section:nth-of-type(4) {
-    height: 750px;
+    height: 800px;
 }
 section:nth-of-type(5) {
-  height: 750px;
+  height: 800px;
 }
-
+section:nth-of-type(6) {
+  height: 800px;
+  padding-bottom: 3em;
+}
+section:nth-of-type(7) {
+  height: 800px;
+}
 .kenburns-top {
 	-webkit-animation: kenburns-top 5s ease-out infinite alternate both;
 	        animation: kenburns-top 5s ease-out infinite alternate both;
@@ -463,4 +481,37 @@ section:nth-of-type(5) {
       opacity: 1;
     }
   }
+  @-webkit-keyframes tracking-out-contract-bck-bottom {
+    0% {
+      -webkit-transform: translateZ(0) translateY(0);
+              transform: translateZ(0) translateY(0);
+      opacity: 0;
+    }
+    60% {
+      opacity: 1;
+    }
+    100% {
+      letter-spacing: 0em;
+      -webkit-transform: translateZ(-100px) translateY(100px);
+              transform: translateZ(-100px) translateY(100px);
+      opacity: 0;
+    }
+  }
+  @keyframes tracking-out-contract-bck-bottom {
+    0% {
+      -webkit-transform: translateZ(0) translateY(0);
+              transform: translateZ(0) translateY(0);
+      opacity: 0;
+    }
+    60% {
+      opacity: 1;
+    }
+    100% {
+      letter-spacing: 0em;
+      -webkit-transform: translateZ(-100px) translateY(100px);
+              transform: translateZ(-100px) translateY(100px);
+      opacity: 0;
+    }
+  }
+  
   
