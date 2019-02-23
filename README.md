@@ -1,5 +1,7 @@
 # vue-proj
 
+![screenshot](/src/assets/sc.png)
+
 ## Project setup
 ```
 npm install
