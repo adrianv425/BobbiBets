@@ -1,4 +1,4 @@
-# vue-proj
+# BobbiBets
 
 ![screenshot](/src/assets/sc.png)
 
